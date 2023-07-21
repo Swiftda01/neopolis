@@ -9,6 +9,12 @@ import detectEthereumProvider from '@metamask/detect-provider';
 export class ContractService {
   constructor() {}
 
+  async placeBlock(index: number) {
+    const contract: any = await this._getContract(true);
+
+    return await contract['place'](index);
+  }
+
   async getTowerHeights(numberOfTowers: number) {
     return await Promise.all(
       Array(numberOfTowers)

@@ -17,6 +17,10 @@ export class AppComponent {
     console.log(this.towers);
   }
 
+  async place(index: number) {
+    await this.contractService.placeBlock(index + 1);
+  }
+
   private async _getTowers() {
     this.towers = await this.contractService.getTowerHeights(this.numOfTowers);
   }
