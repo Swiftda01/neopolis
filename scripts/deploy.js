@@ -4,7 +4,7 @@ async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deploying contracts with the account:", deployer.address);
 
-  const Contract = await hre.ethers.getContractFactory('Neopolis');
+  const Contract = await hre.ethers.getContractFactory("Neopolis");
   const contract = await Contract.deploy(7_800_000_000);
 
   await contract.deployed();
@@ -12,7 +12,7 @@ async function main() {
 
   await contract.deployed();
 
-  console.log('Neopolis contract deployed');
+  console.log("Neopolis contract deployed");
 }
 
 main().catch((error) => {

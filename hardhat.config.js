@@ -8,7 +8,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
-const proxy_url = 'https://devnet.neonevm.org';
+const proxy_url = "https://devnet.neonevm.org";
 const network_id = 245022926;
 const privateKeys = []; // Add private keys for Ethereum EOAs here
 
@@ -22,7 +22,7 @@ module.exports = {
       accounts: privateKeys,
       allowUnlimitedContractSize: false,
       timeout: 1000000,
-      isFork: true
-    }
-  }
+      isFork: true,
+    },
+  },
 };
