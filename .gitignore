@@ -50,3 +50,8 @@ node_modules
 coverage
 coverage.json
 typechain
+
+# Hardhat
+
+artifacts/*
+cache/*
