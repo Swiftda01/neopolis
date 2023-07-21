@@ -7,3 +7,18 @@ button {
   height: 36px;
   width: 120px;
 }
+
+#towers {
+  margin: 10px;
+}
+
+.tower {
+  display: inline-block;
+  width: 40px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 5px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: bottom;
+}
