@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContractService } from './services/contract.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  numOfTowers: number = 5;
+  towers: number[] = [];
 
-  async ngOnInit(): Promise<void> {}
+  constructor(private contractService: ContractService) {}
+
+  async ngOnInit(): Promise<void> {
+    await this._getTowers();
+    console.log(this.towers);
+  }
+
+  private async _getTowers() {
+    this.towers = await this.contractService.getTowerHeights(this.numOfTowers);
+  }
 }
