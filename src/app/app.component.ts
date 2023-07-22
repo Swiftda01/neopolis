@@ -17,8 +17,8 @@ export class AppComponent {
     console.log(this.towers);
   }
 
-  async place(index: number) {
-    await this.contractService.placeBlock(index + 1);
+  async placeBlock(towerIndex: number) {
+    await this.contractService.placeBlock(towerIndex + 1);
   }
 
   private async _getTowers() {

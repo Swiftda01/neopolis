@@ -13,6 +13,10 @@ button {
 }
 
 .tower {
+  &:hover {
+    cursor: pointer;
+  }
+
   display: inline-block;
   width: 40px;
   border: 1px solid black;
