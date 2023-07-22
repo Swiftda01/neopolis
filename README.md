@@ -4,7 +4,7 @@ Welcome to [Neopolis City](https://www.neopolis.city/), where you can build up t
 
 Click on a tower to place one of your BLX, and if you're lucky the tower will topple and you will get all the BLX used to build it! The higher the tower, the greater chance it will tumble!
 
-All application functionality happens on-chain, including the logic to determing if a tower will fall.
+All application functionality happens on-chain, including the logic to determine if a tower will fall.
 
 The game is running on the [Neon](https://neonevm.org/) developer network.
 
