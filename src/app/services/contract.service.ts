@@ -13,13 +13,17 @@ export class ContractService {
 
   constructor() {}
 
-  async initialize(): Promise<void> {
-    if (this.serviceInitialized) return;
+  async initialize(): Promise<boolean> {
+    if (this.serviceInitialized) return true;
 
     this.provider = await this._getWebProvider();
+
+    if (!this.provider) return false;
+
     this.signer = this.provider.getSigner();
 
     this.serviceInitialized = true;
+    return this.serviceInitialized;
   }
 
   async getSignerDetails(): Promise<any> {
@@ -52,7 +56,12 @@ export class ContractService {
   }
 
   private async _getWebProvider(requestAccounts = true): Promise<any> {
-    const provider: any = await detectEthereumProvider();
+    const provider: any = await detectEthereumProvider().catch((error) => {
+      console.error(error);
+      return null;
+    });
+
+    if (!provider) return null;
 
     if (requestAccounts) {
       await provider.request({ method: 'eth_requestAccounts' });

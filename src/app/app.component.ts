@@ -8,6 +8,8 @@ import web3Utils from './utils/web3';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  connectedToNeonNetwork = false;
+
   signer: {
     address: string;
     shortenedAddress: string;
@@ -20,9 +22,12 @@ export class AppComponent {
   constructor(private contractService: ContractService) {}
 
   async ngOnInit(): Promise<void> {
-    await this.contractService.initialize();
-    this._getSignerDetails();
-    this._getTowers();
+    this.connectedToNeonNetwork = await this.contractService.initialize();
+
+    if (this.connectedToNeonNetwork) {
+      this._getSignerDetails();
+      this._getTowers();
+    }
   }
 
   async placeBlock(towerIndex: number) {
