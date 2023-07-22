@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ethers } from 'ethers';
-import Contract from '../contracts/neopolis.abi.json';
+import Contract from '../../../artifacts/contracts/Neopolis.sol/Neopolis.json';
 import detectEthereumProvider from '@metamask/detect-provider';
 import { environment } from '../../environments/environment';
 
