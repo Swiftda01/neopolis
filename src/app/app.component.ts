@@ -42,8 +42,13 @@ export class AppComponent {
 
   async placeBlock(towerIndex: number) {
     if (this.blockPlacementInProgress) return;
+
     this.blockPlacementInProgress = true;
-    await this.contractService.placeBlock(towerIndex + 1);
+
+    await this.contractService.placeBlock(towerIndex + 1).catch((error) => {
+      console.log(error);
+    });
+
     await this._getTowers();
     this.blockPlacementInProgress = false;
   }
