@@ -15,7 +15,7 @@ const privateKeys = []; // Add private keys for Ethereum EOAs here
 module.exports = {
   solidity: "0.8.4",
   networks: {
-    neonlabs: {
+    neonDev: {
       url: proxy_url,
       network_id: network_id,
       chainId: network_id,
