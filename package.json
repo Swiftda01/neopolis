@@ -6,7 +6,7 @@
     "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "heroku-postbuild": "ng build --configuration=production",
+    "heroku-postbuild": "npx hardhat compile && ng build --configuration=production",
     "test": "ng test"
   },
   "browser": {
