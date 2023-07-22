@@ -1,7 +1,9 @@
 html,
 body {
   height: 100%;
+  background-color: black;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -9,9 +11,4 @@ body {
 
 .spacer {
   flex: 1 1 auto;
-}
-
-.primary-button {
-  background-color: #f1f1f1;
-  color: black !important;
 }

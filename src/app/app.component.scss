@@ -7,146 +7,148 @@
     color: white;
   }
 
-  #towers-overlay {
-    position: absolute;
-    z-index: 1;
-    /* Set the bottom of the #towers-overlay to match the bottom of city1 */
-    bottom: calc((110vh)); /* Adjust the value according to your layout */
-    /* Set the left position to center it in the container */
-    left: 65%;
-    /* Adjust the transform property to center it perfectly */
-    transform: translateX(-50%);
-    // display: flex;
-    // flex-wrap: nowrap;
+  #landscape {
+    #towers-overlay {
+      position: absolute;
+      z-index: 1;
+      /* Set the bottom of the #towers-overlay to match the bottom of city1 */
+      bottom: calc((110vh)); /* Adjust the value according to your layout */
+      /* Set the left position to center it in the container */
+      left: 65%;
+      /* Adjust the transform property to center it perfectly */
+      transform: translateX(-50%);
+      // display: flex;
+      // flex-wrap: nowrap;
 
-    #towers {
-      margin: 10px;
-      width: 100vw;
-      min-width: 650px;
-    }
-
-    .tower {
-      &:hover {
-        cursor: pointer;
+      #towers {
+        margin: 10px;
+        width: 100vw;
+        min-width: 650px;
       }
 
-      &.loading,
-      &.blockless {
+      .tower {
         &:hover {
-          cursor: not-allowed;
+          cursor: pointer;
         }
+
+        &.loading,
+        &.blockless {
+          &:hover {
+            cursor: not-allowed;
+          }
+        }
+
+        display: inline-block;
+        width: 10%;
+        padding: 10px;
+        margin: 20px;
+        line-height: 20px;
+        text-align: center;
+        vertical-align: bottom;
+        background: black;
       }
-
-      display: inline-block;
-      width: 10%;
-      padding: 10px;
-      margin: 20px;
-      line-height: 20px;
-      text-align: center;
-      vertical-align: bottom;
-      background: black;
     }
-  }
 
-  .parallax {
-    perspective: 1px;
-    perspective-origin: center;
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin-top: 0;
-    height: 100vh;
-  }
+    .parallax {
+      perspective: 1px;
+      perspective-origin: center;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin-top: 0;
+      height: 100vh;
+    }
 
-  .parallax .group {
-    position: relative;
-    height: 100vh;
-    transform-style: preserve-3d;
-  }
+    .parallax .group {
+      position: relative;
+      height: 100vh;
+      transform-style: preserve-3d;
+    }
 
-  .parallax .layer {
-    position: absolute;
-    width: 100%;
-    overflow: hidden;
-  }
+    .parallax .layer {
+      position: absolute;
+      width: 100%;
+      overflow: hidden;
+    }
 
-  #city1 {
-    fill: black;
-    transform: translateZ(0.25px) scale(0.75) translateY(-1vh);
-  }
+    #city1 {
+      fill: black;
+      transform: translateZ(0.25px) scale(0.75) translateY(-1vh);
+    }
 
-  #city2 {
-    fill: #12161e;
-    stroke: #00ccff;
-    stroke-width: 0.1px;
-    stroke-linejoin: round;
-    transform: translateZ(0px) scale(1) translateY(-1vh);
-  }
+    #city2 {
+      fill: #12161e;
+      stroke: #00ccff;
+      stroke-width: 0.1px;
+      stroke-linejoin: round;
+      transform: translateZ(0px) scale(1) translateY(-1vh);
+    }
 
-  #city3 {
-    fill: #19202f;
-    stroke: #ffcc00;
-    stroke-width: 0.1px;
-    stroke-linejoin: round;
-    transform: translateZ(-0.25px) scale(1.25) translateY(-1vh);
-  }
+    #city3 {
+      fill: #19202f;
+      stroke: #ffcc00;
+      stroke-width: 0.1px;
+      stroke-linejoin: round;
+      transform: translateZ(-0.25px) scale(1.25) translateY(-1vh);
+    }
 
-  #city4 {
-    fill: #222032;
-    stroke: #ff3300;
-    stroke-width: 0.1px;
-    stroke-linejoin: round;
-    transform: translateZ(-0.5px) scale(1.5) translateY(-1vh);
-  }
+    #city4 {
+      fill: #222032;
+      stroke: #ff3300;
+      stroke-width: 0.1px;
+      stroke-linejoin: round;
+      transform: translateZ(-0.5px) scale(1.5) translateY(-1vh);
+    }
 
-  #city5 {
-    fill: #15172a;
-    stroke: #00ff66;
-    stroke-width: 0.1px;
-    stroke-linejoin: round;
-    transform: translateZ(-0.75px) scale(1.75) translateY(-1vh);
-  }
+    #city5 {
+      fill: #15172a;
+      stroke: #00ff66;
+      stroke-width: 0.1px;
+      stroke-linejoin: round;
+      transform: translateZ(-0.75px) scale(1.75) translateY(-1vh);
+    }
 
-  #mountain1 {
-    fill: #202a5c;
-    transform: translateZ(-2.25px) scale(3.25) translateY(-1vh);
-  }
+    #mountain1 {
+      fill: #202a5c;
+      transform: translateZ(-2.25px) scale(3.25) translateY(-1vh);
+    }
 
-  #mountain2 {
-    fill: #4a4d82;
-    transform: translateZ(-2.5px) scale(3.5) translateY(-1vh);
-  }
+    #mountain2 {
+      fill: #4a4d82;
+      transform: translateZ(-2.5px) scale(3.5) translateY(-1vh);
+    }
 
-  #mountain3 {
-    fill: #5f5d99;
-    transform: translateZ(-3px) scale(4) translateY(-10vh);
-    height: 50vh;
-  }
+    #mountain3 {
+      fill: #5f5d99;
+      transform: translateZ(-3px) scale(4) translateY(-10vh);
+      height: 50vh;
+    }
 
-  #mountain4 {
-    fill: #8a7d9e;
-    transform: translateZ(-3.5px) scale(4.5) translateY(-20vh);
-    height: 30vh;
-  }
+    #mountain4 {
+      fill: #8a7d9e;
+      transform: translateZ(-3.5px) scale(4.5) translateY(-20vh);
+      height: 30vh;
+    }
 
-  #moon {
-    fill: #f6f1d5;
-    transform: translateZ(-6px) scale(7) translateY(-25vh);
-    height: 25vh;
-  }
+    #moon {
+      fill: #f6f1d5;
+      transform: translateZ(-6px) scale(7) translateY(-25vh);
+      height: 25vh;
+    }
 
-  .city2-front {
-    background: #12161e;
-    width: 100vw;
-    height: 30vh;
-    position: relative;
-    margin-top: -5px;
-  }
+    .city2-front {
+      background: #12161e;
+      width: 100vw;
+      height: 30vh;
+      position: relative;
+      margin-top: -5px;
+    }
 
-  .city-front {
-    position: relative;
-    margin-top: -5px;
-    background-color: black;
-    width: 100vw;
-    height: 125vh;
+    .city-front {
+      position: relative;
+      margin-top: -5px;
+      background-color: black;
+      width: 100vw;
+      height: 125vh;
+    }
   }
 }
