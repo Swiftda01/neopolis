@@ -17,6 +17,12 @@ button {
     cursor: pointer;
   }
 
+  &.loading {
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
   display: inline-block;
   width: 40px;
   border: 1px solid black;

@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatProgressBarModule,
     ToastrModule.forRoot(),
   ],
   providers: [

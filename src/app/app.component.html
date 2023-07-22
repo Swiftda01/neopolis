@@ -16,9 +16,14 @@
   <div
     *ngFor="let height of towers; let towerIndex = index"
     class="tower"
+    [ngClass]="{ loading: blockPlacementInProgress }"
     style="height: {{ 20 + height * 5 }}px"
     (click)="placeBlock(towerIndex)"
   >
     {{ height }}
   </div>
+</div>
+
+<div *ngIf="blockPlacementInProgress">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>

@@ -15,6 +15,7 @@ export class AppComponent {
   } | null = null;
   numOfTowers: number = 5;
   towers: number[] = [];
+  blockPlacementInProgress = false;
 
   constructor(private contractService: ContractService) {}
 
@@ -25,8 +26,11 @@ export class AppComponent {
   }
 
   async placeBlock(towerIndex: number) {
+    if (this.blockPlacementInProgress) return;
+    this.blockPlacementInProgress = true;
     await this.contractService.placeBlock(towerIndex + 1);
-    this._getTowers();
+    await this._getTowers();
+    this.blockPlacementInProgress = false;
   }
 
   private async _getSignerDetails() {
