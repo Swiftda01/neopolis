@@ -29,12 +29,15 @@
       .tower {
         &:hover {
           cursor: pointer;
+          background-color: black;
+          background: linear-gradient(#25091a, black);
         }
 
         &.loading,
         &.blockless {
           &:hover {
             cursor: not-allowed;
+            background: black;
           }
         }
 
@@ -46,6 +49,11 @@
         text-align: center;
         vertical-align: bottom;
         background: black;
+        border: 10px solid;
+        border-image-slice: 1;
+        border-width: 0.1px;
+        border-image-source: linear-gradient(to top, black, #c23189);
+        max-height: 700px;
       }
     }
 
