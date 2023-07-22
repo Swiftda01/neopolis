@@ -7,15 +7,35 @@ import detectEthereumProvider from '@metamask/detect-provider';
   providedIn: 'root',
 })
 export class ContractService {
+  serviceInitialized = false;
+  provider: any;
+  signer: any;
+
   constructor() {}
 
-  async placeBlock(index: number) {
+  async initialize(): Promise<void> {
+    if (this.serviceInitialized) return;
+
+    this.provider = await this._getWebProvider();
+    this.signer = this.provider.getSigner();
+
+    this.serviceInitialized = true;
+  }
+
+  async getSignerDetails(): Promise<any> {
+    const contract: any = await this._getContract();
+    const address = await this.signer.getAddress();
+    const blockBalance = await contract['balanceOf'](address);
+    return { address, blockBalance };
+  }
+
+  async placeBlock(index: number): Promise<any> {
     const contract: any = await this._getContract(true);
 
     return await contract['place'](index);
   }
 
-  async getTowerHeights(numberOfTowers: number) {
+  async getTowerHeights(numberOfTowers: number): Promise<number[]> {
     return await Promise.all(
       Array(numberOfTowers)
         .fill(0)
@@ -25,24 +45,13 @@ export class ContractService {
     );
   }
 
-  private async _getTowerHeight(index: number) {
+  private async _getTowerHeight(index: number): Promise<number> {
     const contract: any = await this._getContract();
 
     return Number(await contract['heightOf'](index));
   }
 
-  private async _getContract(bySigner = false) {
-    const provider = await this._getWebProvider();
-    const signer = provider.getSigner();
-
-    return new ethers.Contract(
-      '0xc0fa30c9c89fe9b8779826bcb19da1c1007054d8',
-      Contract.abi,
-      bySigner ? signer : provider
-    );
-  }
-
-  private async _getWebProvider(requestAccounts = true) {
+  private async _getWebProvider(requestAccounts = true): Promise<any> {
     const provider: any = await detectEthereumProvider();
 
     if (requestAccounts) {
@@ -50,5 +59,13 @@ export class ContractService {
     }
 
     return new ethers.providers.Web3Provider(provider);
+  }
+
+  private _getContract(bySigner = false): any {
+    return new ethers.Contract(
+      '0xc0fa30c9c89fe9b8779826bcb19da1c1007054d8',
+      Contract.abi,
+      bySigner ? this.signer : this.provider
+    );
   }
 }
