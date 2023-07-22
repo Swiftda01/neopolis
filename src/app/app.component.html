@@ -7,6 +7,10 @@
     <span class="spacer"></span>
     <!-- Content displayed to the right of the toolbar goes here -->
 
+    <span *ngIf="!connectedToNeonNetwork">
+      To enter Neopolis you must be connected to the Neon network
+    </span>
+
     <span *ngIf="signer"
       >{{ this.signer.shortenedAddress }} |
       {{ this.signer.blockBalance }} BLX</span
@@ -113,9 +117,6 @@
                 <mat-progress-bar mode="indeterminate"></mat-progress-bar>
               </div>
             </div>
-          </div>
-          <div *ngIf="!connectedToNeonNetwork">
-            In order to enter Neopolis you must be connected to the Neon network
           </div>
         </div>
       </div>
