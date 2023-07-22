@@ -37,7 +37,6 @@
     "ethers": "^5.6.4",
     "fs": "^0.0.1-security",
     "https-browserify": "^1.0.0",
-    "neopolis-sdk": "^0.1.31-beta",
     "net": "^1.0.2",
     "ngx-toastr": "^16.2.0",
     "os-browserify": "^0.3.0",
