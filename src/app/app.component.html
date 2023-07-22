@@ -12,12 +12,15 @@
   >
 </mat-toolbar>
 
-<div *ngIf="connectedToNeonNetwork">
+<div *ngIf="connectedToNeonNetwork && signer">
   <div id="towers">
     <div
       *ngFor="let height of towers; let towerIndex = index"
       class="tower"
-      [ngClass]="{ loading: blockPlacementInProgress }"
+      [ngClass]="{
+        blockless: !signer.hasBlocks,
+        loading: blockPlacementInProgress
+      }"
       style="height: {{ 20 + height * 5 }}px"
       (click)="placeBlock(towerIndex)"
     >

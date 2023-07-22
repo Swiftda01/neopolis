@@ -17,7 +17,8 @@ button {
     cursor: pointer;
   }
 
-  &.loading {
+  &.loading,
+  &.blockless {
     &:hover {
       cursor: not-allowed;
     }

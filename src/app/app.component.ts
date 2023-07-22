@@ -14,6 +14,7 @@ export class AppComponent {
     address: string;
     shortenedAddress: string;
     blockBalance: number;
+    hasBlocks: boolean;
   } | null = null;
   numOfTowers: number = 5;
   towers: number[] = [];
@@ -41,7 +42,8 @@ export class AppComponent {
   private async _getSignerDetails() {
     const signerDetails = await this.contractService.getSignerDetails();
     const shortenedAddress = web3Utils.shortenedAddress(signerDetails.address);
-    this.signer = { ...signerDetails, shortenedAddress };
+    const hasBlocks = signerDetails.blockBalance > 0;
+    this.signer = { ...signerDetails, shortenedAddress, hasBlocks };
   }
 
   private async _getTowers() {
