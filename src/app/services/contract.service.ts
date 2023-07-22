@@ -31,8 +31,8 @@ export class ContractService {
 
   async placeBlock(index: number): Promise<any> {
     const contract: any = await this._getContract(true);
-
-    return await contract['place'](index);
+    const transaction = await contract['place'](index);
+    return transaction.wait();
   }
 
   async getTowerHeights(numberOfTowers: number): Promise<number[]> {

@@ -26,6 +26,7 @@ export class AppComponent {
 
   async placeBlock(towerIndex: number) {
     await this.contractService.placeBlock(towerIndex + 1);
+    this._getTowers();
   }
 
   private async _getSignerDetails() {
