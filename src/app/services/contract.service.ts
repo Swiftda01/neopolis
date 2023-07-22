@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ethers } from 'ethers';
 import Contract from '../../../artifacts/contracts/Neopolis.sol/Neopolis.json';
 import detectEthereumProvider from '@metamask/detect-provider';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,10 @@ export class ContractService {
     this.provider = await this._getWebProvider();
 
     if (!this.provider) return false;
+
+    const network = await this.provider.getNetwork();
+
+    if (network.chainId !== environment.networkId) return false;
 
     this.signer = this.provider.getSigner();
 
