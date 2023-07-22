@@ -1,6 +1,6 @@
 # Neopolis
 
-Welcome to [Neopolis City](www.https://www.neopolis.city), where you can build up towers and watch them topple!
+Welcome to [Neopolis City](https://www.neopolis.city/), where you can build up towers and watch them topple!
 
 Click on a tower to place one of your BLX, and if you're lucky the tower will topple and you will get all the BLX used to build it! The higher the tower, the greater chance it will tumble!
 
