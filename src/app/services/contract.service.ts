@@ -36,7 +36,7 @@ export class ContractService {
   }
 
   async getTowerHeights(numberOfTowers: number): Promise<number[]> {
-    return await Promise.all(
+    return Promise.all(
       Array(numberOfTowers)
         .fill(0)
         .map(async (_, index) => {
