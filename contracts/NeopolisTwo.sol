@@ -38,25 +38,23 @@ contract NeopolisTwo {
 		return balances[tokenOwner];
 	}
 
-	function transfer(address receiver, uint numTokens) public returns (bool) {
+	function transfer(address receiver, uint numTokens) public {
 		require(numTokens <= balances[msg.sender], "Error: Transfer amount exceeds account balance");
 		balances[msg.sender] = balances[msg.sender].sub(numTokens);
 		balances[receiver] = balances[receiver].add(numTokens);
 		emit Transfer(msg.sender, receiver, numTokens);
-		return true;
 	}
 
-	function approve(address delegate, uint numTokens) public returns (bool) {
+	function approve(address delegate, uint numTokens) public {
 		allowed[msg.sender][delegate] = numTokens;
 		emit Approval(msg.sender, delegate, numTokens);
-		return true;
 	}
 
 	function allowance(address owner, address delegate) public view returns (uint) {
 		return allowed[owner][delegate];
 	}
 
-	function transferFrom(address owner, address buyer, uint numTokens) public returns (bool) {
+	function transferFrom(address owner, address buyer, uint numTokens) public {
 		require(numTokens <= balances[owner], "Error: transfer amount exceeds account balance");    
 		require(numTokens <= allowed[owner][msg.sender], "Error: transfer amount exceeds approved withdrawal amount");
 
@@ -64,7 +62,6 @@ contract NeopolisTwo {
 		allowed[owner][msg.sender] = allowed[owner][msg.sender].sub(numTokens);
 		balances[buyer] = balances[buyer].add(numTokens);
 		emit Transfer(owner, buyer, numTokens);
-		return true;
 	}
 
 	function totalBalanceInPlay() public view returns (uint) {
@@ -75,7 +72,7 @@ contract NeopolisTwo {
 		return towers[xPosition][yPosition];
 	}
 
-	function place(uint xPosition, uint yPosition) public returns (bool) {
+	function place(uint xPosition, uint yPosition) public {
 		require(balances[msg.sender] >= 1, "Error: account has no available balance to place");
 
 		bool toppled = _toppled(towers[xPosition][yPosition]);
@@ -90,7 +87,6 @@ contract NeopolisTwo {
 			towers[xPosition][yPosition] = towers[xPosition][yPosition].add(1);
 		}
 		emit Placement([xPosition, yPosition], towers[xPosition][yPosition]);
-		return true;
 	}
 
 	function _toppled(uint towerHeight) private view returns(bool) {
