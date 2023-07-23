@@ -2,17 +2,23 @@ const hre = require("hardhat");
 
 async function main() {
   const [deployer] = await ethers.getSigners();
-  console.log("Deploying contracts with the account:", deployer.address);
 
-  const Contract = await hre.ethers.getContractFactory("Neopolis");
-  const contract = await Contract.deploy(7_800_000_000);
+  console.log(`Deploying contracts with the account: ${deployer.address}`);
 
-  await contract.deployed();
-  console.log("Contract address is: ", contract.address);
+  await Promise.all(
+    ["Neopolis", "NeopolisTwo"].map(async (contractName) => {
+      const Contract = await hre.ethers.getContractFactory(contractName);
+      const contract = await Contract.deploy(7_800_000_000);
 
-  await contract.deployed();
+      await contract.deployed();
 
-  console.log("Neopolis contract deployed");
+      console.log(`${contractName} contract address is: ${contract.address}`);
+
+      return contract.deployed();
+    })
+  );
+
+  console.log("Contracts deployed");
 }
 
 main().catch((error) => {
