@@ -10,7 +10,7 @@ The game is running on the [Neon](https://neonevm.org/) developer network.
 
 ## Installation
 
-- Clone the repository by running `https://github.com/Swiftda01/neopolis.git`
+- Clone the repository by running `git clone https://github.com/Swiftda01/neopolis.git`
 
 - Navigate to project root directory
 
